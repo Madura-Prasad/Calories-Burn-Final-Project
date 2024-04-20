@@ -1,4 +1,4 @@
-package com.example.Sentiment_Analysis;
+package com.example.CaloriesBurnPrediction;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
