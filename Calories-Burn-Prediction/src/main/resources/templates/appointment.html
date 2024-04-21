@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,
+            shrink-to-fit=no" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" th:href="@{../assets/user/css/bootstrap.min.css}" />
+<!-- Google fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+	rel="stylesheet" />
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" th:href="@{../assets/user/css/all.css}" />
+<!-- Slick Slider CSS -->
+<link rel="stylesheet" th:href="@{../assets/user/css/slick.css}" />
+<link rel="stylesheet" th:href="@{../assets/user/css/slick-theme.css}" />
+<!-- Magnific popup CSS -->
+<link rel="stylesheet"
+	th:href="@{../assets/user/css/magnific-popup.css}" />
+<!-- Style CSS -->
+<link rel="stylesheet" th:href="@{../assets/user/css/style.css}" />
+<title>Medenin</title>
+</head>
+
+<body>
+	<!--==================== Header ====================-->
+	<header>
+		<div class="banner--wrap">
+			<nav>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- Nav menu -->
+							<nav class="navbar navbar-expand-lg navbar-light">
+								<a class="navbar-brand" href="index.html"><img
+									th:src="@{../assets/user/images/logo.png}" alt="#" /></a>
+								<button class="navbar-toggler nav-custome1" type="button"
+									data-toggle="collapse" data-target="#navbarSupportedContent"
+									aria-controls="navbarSupportedContent" aria-expanded="false"
+									aria-label="Toggle
+                                        navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+								<div class="collapse navbar-collapse"
+									id="navbarSupportedContent">
+									<ul class="navbar-nav ml-auto">
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/'}"> Home </a>
+										</li>
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/service'}">
+												Services </a></li>
+										<!-- Sub Menu -->
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/doctor'}">Our
+												Doctors</a></li>
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/about'}">About
+												Us</a></li>
+
+
+
+										<th:block th:if="${users==NULL}">
+											<div class="quote_btn-container">
+												<a
+													class="nav-link btn btn-outline-primary appointment-btn-top"
+													th:href="@{'/signin'}">Login In</a>
+											</div>
+										</th:block>
+										<th:block th:if="${users!=null}">
+
+											<li class="nav-item dropdown"><a
+												class="nav-link btn btn-outline-primary"
+												th:href="@{'/user/appointment'}">Appointment</a></li>
+											<li class="nav-item dropdown" style="margin-left: 10px;">
+												<a class="nav-link btn btn-outline-danger" href="/logout">Log
+													Out</a>
+											</li>
+
+										</th:block>
+									</ul>
+								</div>
+							</nav>
+							<!--//End Nav menu -->
+						</div>
+					</div>
+				</div>
+			</nav>
+			<br> <br> <br>
+			<!--//End News -->
+			<!--==================== Appointment ====================-->
+			<section class="space background-bg4">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-md-12 col-lg-6">
+							<div class="appointment-form_wrap">
+								<div class="heading-style1">
+									<span>Online Booking</span>
+									<h2>Make an Appointment</h2>
+								</div>
+								<form action="saveAppointment" method="post">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group form-group-cutom">
+												<input type="text" name="name" class="form-control form-custom"
+													placeholder="Enter Your Name" required> <i
+													class="far fa-user"></i>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group form-group-cutom">
+												<input type="date" class="form-control form-custom"
+													placeholder="Date and time" name="date" required >
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group form-group-cutom">
+												<input type="number" class="form-control form-custom"
+													placeholder="Enter phone number" name="mobile" required> <i
+													class="fas fa-phone"></i>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group form-group-cutom">
+												<input type="text" class="form-control form-custom"
+													placeholder="Select location" name="location" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group form-group-cutom">
+												<select class="form-control form-custom" id="doctorSelect" name="doctor" >
+													<option value="" selected>Select doctor</option>
+													<option value="Dr. John Smith">Dr. John Smith</option>
+													<option value="Dr. Emily Johnson">Dr. Emily
+														Johnson</option>
+													<option value="Dr. Michael Brown">Dr. Michael
+														Brown</option>
+													<option value="Dr. Sarah Wilson">Dr. Sarah Wilson</option>
+													<option value="Dr. David Martinez">Dr. David
+														Martinez</option>
+													<option value="Dr. Jennifer Garcia">Dr. Jennifer
+														Garcia</option>
+													<option value="Dr. James Miller">Dr. James Miller</option>
+													<option value="Dr. Lisa Davis">Dr. Lisa Davis</option>
+													<option value="Dr. Robert Rodriguez">Dr. Robert
+														Rodriguez</option>
+													<option value="Dr. Jessica Martinez">Dr. Jessica
+														Martinez</option>
+												</select> <i class="far fa-user"></i>
+
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group form-group-cutom">
+												<label for="exampleFormControlTextarea1">Your
+													Message</label>
+												<textarea class="form-control"
+													id="exampleFormControlTextarea1" rows="3" name="message" required></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<button type="submit" class="btn btn-success">BOOK NOW</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-6">
+							<div class="why-choose_block">
+								<div class="heading-style1">
+									<span>Why Us</span>
+									<h2>Why Choose Us</h2>
+									<p>At Mededin Clinic, we understand that choosing a
+										healthcare provider is an important decision. Here's why you
+										should choose us:</p>
+									<hr>
+								</div>
+								<div class="whychoose-wrap">
+									<img th:src="@{../assets/user/images/icon1.png}" alt="#">
+									<div class="whychoose-text_block">
+										<h4>Quality Care</h4>
+										<p>At Mededin Clinic, we deliver top-tier, personalized
+											care with compassion and evidence-based methods.</p>
+									</div>
+								</div>
+								<div class="whychoose-wrap">
+									<img th:src="@{../assets/user/images/icon2.png}" alt="#">
+									<div class="whychoose-text_block">
+										<h4>Medical Expertise</h4>
+										<p>Our renowned physicians prioritize excellence and
+											continuous learning, ensuring precise diagnoses, effective
+											treatments, and personalized care.</p>
+									</div>
+								</div>
+								<div class="whychoose-wrap">
+									<img th:src="@{../assets/user/images/icon3.png}" alt="#">
+									<div class="whychoose-text_block">
+										<h4>Medical Innovation</h4>
+										<p>At Mededin Clinic, we lead with cutting-edge medical
+											innovation, ensuring optimal outcomes through the latest
+											advancements in healthcare.</p>
+									</div>
+								</div>
+								<div class="whychoose-wrap">
+									<img th:src="@{../assets/user/images/icon4.png}" alt="#">
+									<div class="whychoose-text_block">
+										<h4>Compassionate Care</h4>
+										<p>At Mededin Clinic, we prioritize empathy and create a
+											supportive environment, ensuring you feel valued throughout
+											your medical journey.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//End Appointment -->
+			<!--==================== Footer ====================-->
+			<footer>
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<div class="foot-contact-block">
+								<img th:src="@{../assets/user/images/foot-logo.png}"
+									class="img-fluid" alt="#" />
+								<p>Welcome to Medenin, your trusted destination for
+									comprehensive healthcare services. Our dedicated team of
+									healthcare professionals is committed to providing exceptional
+									care tailored to meet your individual needs. From routine
+									check-ups to specialized treatments, we are here to support you
+									on your journey to optimal health and wellness. Contact us
+									today to schedule an appointment or learn more about our
+									services. Your well-being is our top priority.</p>
+								<a href="tel:31234567890">
+									<h4>
+										<i class="fas fa-phone"></i>+94 70 145 2547
+									</h4>
+								</a> <a href="mailto:info@mededin.com">
+									<h4>
+										<i class="far fa-envelope"></i>info@mededin.com
+									</h4>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-4 offset-lg-1">
+							<div class="foot-link-box">
+								<h4>Quick Links</h4>
+								<ul>
+									<li><a href="about.html"><i
+											class="fas fa-angle-double-right"></i>About Us</a></li>
+									<li><a href="services.html"><i
+											class="fas fa-angle-double-right"></i>Our Services</a></li>
+									<li><a href="contact-us.html"><i
+											class="fas fa-angle-double-right"></i>Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="copyright">
+								<p>© Medenin 2020 Allright Reserved</p>
+								<a href="#" id="scroll"><i class="fas fa-angle-double-up"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!--//End Footer -->
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script th:src="@{assets/user/js/jquery-3.5.1.min.js}"></script>
+			<script th:src="@{assets/user/js/popper.min.js}"></script>
+			<script th:src="@{assets/user/js/bootstrap.min.js}"></script>
+			<!-- Slick Slider Js -->
+			<script th:src="@{assets/user/js/slick.min.js}"></script>
+			<!-- Magnific popup Js -->
+			<script th:src="@{assets/user/js/jquery.magnific-popup.min.js}"></script>
+			<!-- Script Js -->
+			<script th:src="@{assets/user/js/script.js}"></script>
+</body>
+
+</html>

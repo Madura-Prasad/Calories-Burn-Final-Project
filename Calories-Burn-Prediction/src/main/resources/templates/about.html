@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,
+            shrink-to-fit=no" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" th:href="@{assets/user/css/bootstrap.min.css}" />
+<!-- Google fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+	rel="stylesheet" />
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" th:href="@{assets/user/css/all.css}" />
+<!-- Slick Slider CSS -->
+<link rel="stylesheet" th:href="@{assets/user/css/slick.css}" />
+<link rel="stylesheet" th:href="@{assets/user/css/slick-theme.css}" />
+<!-- Magnific popup CSS -->
+<link rel="stylesheet" th:href="@{assets/user/css/magnific-popup.css}" />
+<!-- Style CSS -->
+<link rel="stylesheet" th:href="@{assets/user/css/style.css}" />
+<title>Medenin</title>
+</head>
+
+<body>
+	<!--==================== Header ====================-->
+	<header>
+		<div class="banner--wrap">
+			<nav>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- Nav menu -->
+							<nav class="navbar navbar-expand-lg navbar-light">
+								<a class="navbar-brand" href="index.html"><img
+									th:src="@{assets/user/images/logo.png}" alt="#" /></a>
+								<button class="navbar-toggler nav-custome1" type="button"
+									data-toggle="collapse" data-target="#navbarSupportedContent"
+									aria-controls="navbarSupportedContent" aria-expanded="false"
+									aria-label="Toggle
+                                        navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+								<div class="collapse navbar-collapse"
+									id="navbarSupportedContent">
+									<ul class="navbar-nav ml-auto">
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/'}"> Home </a>
+										</li>
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/service'}">
+												Services </a></li>
+										<!-- Sub Menu -->
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/doctor'}">Our
+												Doctors</a></li>
+										<li class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle" th:href="@{'/about'}">About
+												Us</a></li>
+
+
+
+										<th:block th:if="${user==NULL}">
+											<div class="quote_btn-container">
+												<a
+													class="nav-link btn btn-outline-primary appointment-btn-top"
+													th:href="@{'/signin'}">Login In</a>
+											</div>
+										</th:block>
+										<th:block th:if="${user!=null}">
+
+											<li class="nav-item dropdown"><a
+												class="nav-link btn btn-outline-primary"
+												th:href="@{'/user/appointment'}">Appointment</a></li>
+											<li class="nav-item dropdown" style="margin-left: 10px;">
+												<a class="nav-link btn btn-outline-danger" href="/logout">Log
+													Out</a>
+											</li>
+
+										</th:block>
+									</ul>
+								</div>
+							</nav>
+							<!--//End Nav menu -->
+						</div>
+					</div>
+				</div>
+			</nav>
+			<!--//End Header -->
+			<!--==================== About Section ====================-->
+			<section class="about-section space-mt">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- About -->
+							<div class="about-video_block">
+								<div class="row">
+									<div class="col-md-12 col-lg-6">
+										<img th:src="@{assets/user/images/about-img.png}"
+											class="img-fluid w-100" alt="#" />
+									</div>
+									<div class="col-md-12 col-lg-6">
+										<div class="video-play-text">
+											<h2>About Mededin Clinic</h2>
+											<p>Mededin Clinic is a state-of-the-art medical facility
+												dedicated to providing exceptional healthcare services to
+												our community. Our team of highly skilled physicians,
+												nurses, and support staff are committed to delivering
+												compassionate care tailored to meet the unique needs of each
+												patient.</p>
+											<p>With a focus on preventive medicine, we offer
+												comprehensive health screenings and wellness programs aimed
+												at promoting a healthy lifestyle and reducing the risk of
+												chronic diseases. From routine check-ups to specialized
+												treatments, we strive to ensure that every individual
+												receives the highest standard of medical care.</p>
+
+											<div class="row">
+												<div class="col-md-6">
+													<div class="facilities blue">
+														<h3>1000+</h3>
+														<span>Happy Patients</span>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="facilities green">
+														<h3>215+</h3>
+														<span>Expert Doctors</span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="facilities yellow">
+														<h3>315+</h3>
+														<span>Hospital Rooms</span>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="facilities gray">
+														<h3>106+</h3>
+														<span>Award Winner</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--//End About -->
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//End About Section -->
+			<!--==================== News ====================-->
+			<section class="space-mb">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="video-play-text">
+								<span>Who we are -----</span>
+								<h2>We Have Advanced Technologies</h2>
+								<p>Our medical clinic utilizes cutting-edge technologies to
+									provide the highest quality healthcare services. Lorem ipsum
+									dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+									minim veniam, quis nostrud exercitation.</p>
+								<p>We are dedicated to staying at the forefront of medical
+									innovation, ensuring that our patients receive the most
+									effective treatments available. Lorem ipsum dolor sit amet,
+									consectetur adipisicing elit, sed do eiusmod tempor incididunt
+									ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+									nostrud exercitation.</p>
+								<hr />
+								<div class="newsletter-subscribe">
+									<h4>Subscribe to our Newsletter</h4>
+									<div class="newsletter-subscribe_form">
+										<input type="text" class="form-control"
+											placeholder="Enter Your Email" /> <a href="#"><i
+											class="fas fa-chevron-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="news-img-block">
+								<img th:src="@{assets/user/images/play-img.png}"
+									class="img-fluid" alt="#" />
+								<div id="video-overlay" class="video-overlay">
+									<a class="video-overlay-close">&times;</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//End News -->
+			<!--==================== Our Mission ====================-->
+			<section class="space">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="mission-wrap">
+								<h3>Our Mission</h3>
+								<p>At Mededin Clinic, our mission is to provide accessible,
+									high-quality healthcare to every patient we serve. We are
+									dedicated to promoting wellness, preventing illness, and
+									treating each individual with compassion and respect.</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="mission-wrap">
+								<h3>Our Vision</h3>
+								<p>Our vision at Mededin Clinic is to be a trusted leader in
+									healthcare innovation, delivering cutting-edge treatments and
+									personalized care to improve the health and well-being of our
+									community. We aspire to create a healthier future for all.</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="mission-wrap">
+								<h3>Our Values</h3>
+								<p>At Mededin Clinic, our values guide everything we do. We
+									prioritize integrity, excellence, and empathy in all
+									interactions. We are committed to fostering a culture of
+									teamwork, professionalism, and continuous learning to better
+									serve our patients and community.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+			<!--//End Our Mission -->
+			<!--==================== Our Team ====================-->
+			<section class="our-team light space">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="sub-title_center">
+								<span>---- Our Team ----</span>
+								<h2>Our Dedicated Doctors</h2>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="doctors-slider">
+								<div class="team-img_block yellow">
+									<div class="team-img-socila-block">
+										<img th:src="@{assets/user/images/team1.png}"
+											class="img-fluid" alt="#"
+											style="width: 200px; height: 200px;" />
+									</div>
+									<h4>Dr. Mary Joe</h4>
+									<p>Cardiologist Specialist</p>
+								</div>
+								<div class="team-img_block green">
+									<div class="team-img-socila-block">
+										<img th:src="@{assets/user/images/team2.png}"
+											class="img-fluid" alt="#"
+											style="width: 200px; height: 200px;" />
+									</div>
+									<h4>Thomas Jack</h4>
+									<p>Neurology Specialist</p>
+								</div>
+								<div class="team-img_block blue">
+									<div class="team-img-socila-block">
+										<img th:src="@{assets/user/images/team3.png}"
+											class="img-fluid" alt="#"
+											style="width: 200px; height: 200px;" />
+									</div>
+									<h4>Dr. Mary Joe</h4>
+									<p>Cardiologist Specialist</p>
+								</div>
+								<div class="team-img_block yellow">
+									<div class="team-img-socila-block">
+										<img th:src="@{assets/user/images/team4.png}"
+											class="img-fluid" alt="#"
+											style="width: 200px; height: 200px;" />
+									</div>
+									<h4>Dr. Hessy Hanna</h4>
+									<p>Radiology Specialist</p>
+								</div>
+								<div class="team-img_block blue">
+									<div class="team-img-socila-block">
+										<img th:src="@{assets/user/images/team5.png}"
+											class="img-fluid" alt="#"
+											style="width: 200px; height: 200px;" />
+									</div>
+									<h4>Dr. Mary Joe</h4>
+									<p>Cardiologist Specialist</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//End Our Team -->
+			<!--==================== Counter ====================-->
+			<section class="counter">
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-sm-4 col-md-3 col-lg-3">
+							<div class="counter-block">
+								<img th:src="@{assets/user/images/counter1.png}" alt="#">
+								<div class="counter-text">
+									<h2>60+</h2>
+									<p>Expert Doctors</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 col-lg-3">
+							<div class="counter-block">
+								<img th:src="@{assets/user/images/counter2.png}" alt="#">
+								<div class="counter-text">
+									<h2>1000+</h2>
+									<p>Happy Patients</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 col-lg-3">
+							<div class="counter-block">
+								<img th:src="@{assets/user/images/counter3.png}" alt="#">
+								<div class="counter-text">
+									<h2>150+</h2>
+									<p>Award Winner</p>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-end">
+							<div class="counter-btn_block">
+								<a th:href="@{'/user/appointment'}" class="btn btn-success">BOOK NOW</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//End Counter -->
+			<!--==================== Footer ====================-->
+			<footer>
+				<div class="container container-custom">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-6">
+							<div class="foot-contact-block">
+								<img th:src="@{assets/user/images/foot-logo.png}"
+									class="img-fluid" alt="#" />
+								<p>Welcome to Medenin, your trusted destination for
+									comprehensive healthcare services. Our dedicated team of
+									healthcare professionals is committed to providing exceptional
+									care tailored to meet your individual needs. From routine
+									check-ups to specialized treatments, we are here to support you
+									on your journey to optimal health and wellness. Contact us
+									today to schedule an appointment or learn more about our
+									services. Your well-being is our top priority.</p>
+								<a href="tel:31234567890">
+									<h4>
+										<i class="fas fa-phone"></i>+94 70 145 2547
+									</h4>
+								</a> <a href="mailto:info@mededin.com">
+									<h4>
+										<i class="far fa-envelope"></i>info@mededin.com
+									</h4>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-4 offset-lg-1">
+							<div class="foot-link-box">
+								<h4>Quick Links</h4>
+								<ul>
+									<li><a href="about.html"><i
+											class="fas fa-angle-double-right"></i>About Us</a></li>
+									<li><a href="services.html"><i
+											class="fas fa-angle-double-right"></i>Our Services</a></li>
+									<li><a href="contact-us.html"><i
+											class="fas fa-angle-double-right"></i>Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="copyright">
+								<p>© Medenin 2020 Allright Reserved</p>
+								<a href="#" id="scroll"><i class="fas fa-angle-double-up"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!--//End Footer -->
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script th:src="@{assets/user/js/jquery-3.5.1.min.js}"></script>
+			<script th:src="@{assets/user/js/popper.min.js}"></script>
+			<script th:src="@{assets/user/js/bootstrap.min.js}"></script>
+			<!-- Slick Slider Js -->
+			<script th:src="@{assets/user/js/slick.min.js}"></script>
+			<!-- Magnific popup Js -->
+			<script th:src="@{assets/user/js/jquery.magnific-popup.min.js}"></script>
+			<!-- Script Js -->
+			<script th:src="@{assets/user/js/script.js}"></script>
+</body>
+
+</html>
