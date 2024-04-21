@@ -2,6 +2,8 @@ package com.example.CaloriesBurnPrediction.Controller;
 
 import java.security.Principal;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,8 @@ public class FrontPageController {
 	@Autowired
 	private UserRepo userRepo;
 
+	
+	private static final Logger logger = LogManager.getLogger(FrontPageController.class);
 	
 	@GetMapping("/")
 	public String Index(Model model, Principal principal) {
@@ -149,30 +153,40 @@ public class FrontPageController {
 	
 	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute User user, HttpSession session) {
-		try {
-			User existingUser = userRepo.findByEmail(user.getEmail());
+	    try {
+	        // Check if the user already exists
+	        User existingUser = userRepo.findByEmail(user.getEmail());
 
-			if (existingUser != null) {
-				session.setAttribute("msgError", "Email address already exists. Please use a different email.");
-				session.removeAttribute("msg");
-				return "redirect:/signup";
-			} else {
-				User savedUser = userService.saveUser(user);
+	        if (existingUser != null) {
+	            // Set error message and redirect if user already exists
+	            session.setAttribute("msgError", "Email address already exists. Please use a different email.");
+	            session.removeAttribute("msg");
+	            return "redirect:/signup";
+	        } else {
+	            // Save the user and handle success or failure
+	            User savedUser = userService.saveUser(user);
 
-				if (savedUser != null) {
-					session.setAttribute("msg", "Registration successful. Please sign in.");
-					session.removeAttribute("msgError");
-					return "redirect:/signup";
-				} else {
-					session.setAttribute("msgError", "Something went wrong on the server.");
-					session.removeAttribute("msg");
-					return "redirect:/signup";
-				}
-			}
-		} catch (Exception e) {
-			return "redirect:/errorPage";
-		}
+	            if (savedUser != null) {
+	                // Set success message and redirect after successful registration
+	                session.setAttribute("msg", "Registration successful. Please sign in.");
+	                session.removeAttribute("msgError");
+	                return "redirect:/signup";
+	            } else {
+	                // Set error message and redirect if something went wrong during registration
+	                session.setAttribute("msgError", "Something went wrong on the server.");
+	                session.removeAttribute("msg");
+	                return "redirect:/signup";
+	            }
+	        }
+	    } catch (Exception e) {
+	        // Log the exception with an ERROR level
+	        logger.error("An error occurred while processing user registration", e);
+	        
+	        // Redirect to an error page or handle the exception as appropriate
+	        return "redirect:/errorPage";
+	    }
 	}
+
 	
 	
 	

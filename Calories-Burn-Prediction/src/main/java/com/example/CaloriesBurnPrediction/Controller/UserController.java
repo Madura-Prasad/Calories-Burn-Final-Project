@@ -2,6 +2,8 @@ package com.example.CaloriesBurnPrediction.Controller;
 
 import java.security.Principal;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +37,8 @@ public class UserController {
 	private AppointmentService appointmentService;
 
 	
+	private static final Logger logger = LogManager.getLogger(UserController.class);
+	
 	@GetMapping("/appointment")
 	public String Appointment(Model model, Principal principal) {
 		boolean isLoggedIn = principal != null;
@@ -53,9 +57,24 @@ public class UserController {
 	
 	@PostMapping("/saveAppointment")
 	public String saveAppointment(@ModelAttribute Appointment appointment, HttpSession session) {
-		Appointment saveAppointment = appointmentService.saveAppointment(appointment);
-		return "redirect:/";
+	    try {
+	        // Save the appointment
+	        Appointment savedAppointment = appointmentService.saveAppointment(appointment);
+	        
+	        // Log an INFO message for successful appointment saving
+	        logger.info("Appointment saved successfully: " + savedAppointment);
+
+	        // Redirect to the appropriate page
+	        return "redirect:/";
+	    } catch (Exception e) {
+	        // Log the exception with an ERROR level
+	        logger.error("An error occurred while saving appointment", e);
+	        
+	        // Redirect to an error page or handle the exception as appropriate
+	        return "redirect:/errorPage";
+	    }
 	}
+
 	
 	
 	

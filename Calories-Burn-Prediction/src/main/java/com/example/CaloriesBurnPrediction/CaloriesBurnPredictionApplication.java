@@ -8,7 +8,7 @@ public class CaloriesBurnPredictionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CaloriesBurnPredictionApplication.class, args);
-		System.out.println("Project Started...");
+		System.out.println("Calories Burn Project Started...");
 	}
 
 }

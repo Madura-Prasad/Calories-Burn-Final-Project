@@ -33,6 +33,16 @@
                             <a th:href="@{'/signin'}" class="active">Login</a><a th:href="@{'/signup'}">Register</a>
                         </div>
                         <form action="userLogin"  method="post">
+                        <th:block th:if="${param.error}">
+								<h5 class="fw-bold text-danger text-center" id="errorMessage">
+									Incorrect Email or Password. Please try again.
+									</h6>
+							</th:block>
+							<th:block th:if="${param.logout}">
+								<h5 class="fw-bold text-danger text-center" id="logoutMessage">
+									You have been Successfully Logged Out.
+									</h6>
+							</th:block>
                             <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
